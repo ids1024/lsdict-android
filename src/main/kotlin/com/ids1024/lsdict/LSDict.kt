@@ -12,5 +12,6 @@ public class LSDict : ListActivity {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.main)
 	db = LSDatabase(this)
+        db.search("caesar")
     }
 }
