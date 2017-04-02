@@ -33,6 +33,7 @@ public class LSDict : ListActivity() {
         return true
     }
     override protected fun onNewIntent(intent: Intent) {
+        super.onNewIntent(intent)
         handleIntent(intent)
     }
     private fun handleIntent(intent: Intent) {
