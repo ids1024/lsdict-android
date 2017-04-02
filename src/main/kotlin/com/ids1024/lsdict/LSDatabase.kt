@@ -7,8 +7,7 @@ import com.readystatesoftware.sqliteasset.SQLiteAssetHelper
 
 val DB_VERSION = 1
 
-public class LSDatabase : SQLiteAssetHelper {
-    constructor(context: Context) : super(context, "lewis.db", null, DB_VERSION)
+public class LSDatabase(context: Context) : SQLiteAssetHelper(context, "lewis.db", null, DB_VERSION) {
     public fun search(word: String) : Cursor {
         val db = getReadableDatabase()
         val qb = SQLiteQueryBuilder()

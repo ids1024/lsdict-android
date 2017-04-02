@@ -5,9 +5,8 @@ import android.os.Bundle
 import android.database.sqlite.SQLiteDatabase
 import android.widget.SimpleCursorAdapter
 
-public class LSDict : ListActivity {
+public class LSDict : ListActivity() {
     private lateinit var db: LSDatabase
-    constructor() : super()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.main)
