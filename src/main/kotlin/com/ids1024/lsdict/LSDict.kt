@@ -12,9 +12,13 @@ public class LSDict : ListActivity {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.main)
 	db = LSDatabase(this)
-        val result = db.search("caesar")
-        
-        val adapter = LSCursorAdapter(this, result, 0)
-        listView.adapter = adapter
+        search("a")
+    }
+    private fun search(word: String) {
+        val term = word.toLowerCase()
+                       .replace('j', 'i')
+                       .replace('v', 'u')
+        val result = db.search(term)
+        listView.adapter = LSCursorAdapter(this, result, 0)
     }
 }

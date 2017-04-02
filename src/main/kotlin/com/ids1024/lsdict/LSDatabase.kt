@@ -13,8 +13,6 @@ public class LSDatabase : SQLiteAssetHelper {
         val db = getReadableDatabase()
         val qb = SQLiteQueryBuilder()
         qb.tables = "dictionary"
-        val c = qb.query(db, null, "_id=?", Array(1, {word}), null, null, null)
-        c.moveToFirst()
-        return c
+        return qb.query(db, null, "word=?", arrayOf(word), null, null, null)
     }
 }

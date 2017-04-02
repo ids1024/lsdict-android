@@ -4,16 +4,6 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     >
-<ToggleButton
-    android:layout_width="fill_parent"
-    android:layout_height="wrap_content"
-    />
-<EditText
-    android:layout_width="fill_parent"
-    android:layout_height="wrap_content"
-    android:inputType="text"
-    android:imeOptions="actionSearch"
-    />
 <ListView
     android:id="@android:id/list"
     android:layout_width="fill_parent"
