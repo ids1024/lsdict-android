@@ -18,6 +18,6 @@ public class LSDict : ListActivity() {
                        .replace('j', 'i')
                        .replace('v', 'u')
         val result = db.search(term)
-        listView.adapter = LSCursorAdapter(this, result, 0)
+        listView.adapter = LSCursorAdapter(this, result)
     }
 }

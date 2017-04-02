@@ -9,7 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.text.Html
 
-public class LSCursorAdapter(context: Context, c: Cursor, flags: Int) : CursorAdapter(context, c, flags) {
+public class LSCursorAdapter(context: Context, c: Cursor) : CursorAdapter(context, c, 0) {
     override public fun newView(context: Context, cursor: Cursor, parent: ViewGroup) : View {
         return LayoutInflater.from(context).inflate(R.layout.result, parent, false)
     }
