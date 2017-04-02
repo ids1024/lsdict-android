@@ -15,6 +15,6 @@ public class LSDict : ListActivity {
         val result = db.search("caesar")
         
         val adapter = LSCursorAdapter(this, result, 0)
-        getListView().setAdapter(adapter)
+        listView.adapter = adapter
     }
 }

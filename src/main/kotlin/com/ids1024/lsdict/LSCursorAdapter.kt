@@ -17,6 +17,6 @@ public class LSCursorAdapter : CursorAdapter {
     override public fun bindView(view: View, context: Context, cursor: Cursor) {
         val tv = view.findViewById(R.id.result) as TextView
         val html = cursor.getString(1)
-        tv.setText(Html.fromHtml(html))
+        tv.text = Html.fromHtml(html)
     }
 }

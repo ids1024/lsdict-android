@@ -12,7 +12,7 @@ public class LSDatabase : SQLiteAssetHelper {
     public fun search(word: String) : Cursor {
         val db = getReadableDatabase()
         val qb = SQLiteQueryBuilder()
-        qb.setTables("dictionary")
+        qb.tables = "dictionary"
         val c = qb.query(db, null, "_id=?", Array(1, {word}), null, null, null)
         c.moveToFirst()
         return c
