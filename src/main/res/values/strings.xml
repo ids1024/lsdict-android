@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Lewis and Short Latin Dictionary</string>
+    <string name="search_title">Search</string>
 </resources>

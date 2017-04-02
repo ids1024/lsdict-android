@@ -4,6 +4,7 @@ import android.app.ListActivity
 import android.os.Bundle
 import android.database.sqlite.SQLiteDatabase
 import android.widget.SimpleCursorAdapter
+import android.view.Menu
 
 public class LSDict : ListActivity() {
     private lateinit var db: LSDatabase
@@ -19,5 +20,9 @@ public class LSDict : ListActivity() {
                        .replace('v', 'u')
         val result = db.search(term)
         listView.adapter = LSCursorAdapter(this, result)
+    }
+    override public fun onCreateOptionsMenu(menu: Menu) : Boolean {
+        menuInflater.inflate(R.menu.main, menu)
+        return true
     }
 }
