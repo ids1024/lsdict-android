@@ -2,7 +2,6 @@ package com.ids1024.lsdict
 
 import android.app.ListActivity
 import android.os.Bundle
-import android.text.Html
 import android.database.sqlite.SQLiteDatabase
 import android.widget.SimpleCursorAdapter
 
@@ -15,11 +14,7 @@ public class LSDict : ListActivity {
 	db = LSDatabase(this)
         val result = db.search("caesar")
         
-        val adapter = SimpleCursorAdapter(this, 
-                        R.layout.result,
-                        result,
-                        Array(1, {"description"}),
-                        intArrayOf(R.id.result))
+        val adapter = LSCursorAdapter(this, result, 0)
         getListView().setAdapter(adapter)
     }
 }
