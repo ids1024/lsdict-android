@@ -36,8 +36,7 @@ public class LSDict : ListActivity() {
         handleIntent(intent)
     }
     private fun handleIntent(intent: Intent) {
-        //if (intent.action == Intent.ACTION_SEARCH) {
-        if (Intent.ACTION_SEARCH.equals(intent.getAction())) {
+        if (intent.action == Intent.ACTION_SEARCH) {
             search(intent.getStringExtra(SearchManager.QUERY))
         }
     }
