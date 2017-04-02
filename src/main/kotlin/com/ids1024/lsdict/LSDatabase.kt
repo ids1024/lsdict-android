@@ -5,7 +5,7 @@ import android.database.Cursor
 import android.database.sqlite.SQLiteQueryBuilder
 import com.readystatesoftware.sqliteasset.SQLiteAssetHelper
 
-val DB_VERSION: Int = 1
+val DB_VERSION = 1
 
 public class LSDatabase : SQLiteAssetHelper {
     constructor(context: Context) : super(context, "lewis.db", null, DB_VERSION)
@@ -13,7 +13,7 @@ public class LSDatabase : SQLiteAssetHelper {
         val db = getReadableDatabase()
         val qb = SQLiteQueryBuilder()
         qb.setTables("dictionary")
-        val c = qb.query(db, null, null, null, null, null, null)
+        val c = qb.query(db, null, "_id=?", Array(1, {word}), null, null, null)
         c.moveToFirst()
         return c
     }

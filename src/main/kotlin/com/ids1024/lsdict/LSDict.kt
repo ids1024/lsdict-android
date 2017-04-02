@@ -4,6 +4,7 @@ import android.app.ListActivity
 import android.os.Bundle
 import android.text.Html
 import android.database.sqlite.SQLiteDatabase
+import android.widget.SimpleCursorAdapter
 
 public class LSDict : ListActivity {
     private lateinit var db: LSDatabase
@@ -12,6 +13,13 @@ public class LSDict : ListActivity {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.main)
 	db = LSDatabase(this)
-        db.search("caesar")
+        val result = db.search("caesar")
+        
+        val adapter = SimpleCursorAdapter(this, 
+                        R.layout.result,
+                        result,
+                        Array(1, {"description"}),
+                        intArrayOf(R.id.result))
+        getListView().setAdapter(adapter)
     }
 }
