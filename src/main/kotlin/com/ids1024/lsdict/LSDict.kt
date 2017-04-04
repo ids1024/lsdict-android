@@ -9,7 +9,6 @@ import android.content.Context
 import android.app.SearchManager
 import android.widget.SearchView
 import android.content.Intent
-import android.os.Bundle
 
 public class LSDict : ListActivity() {
     private lateinit var db: LSDatabase
