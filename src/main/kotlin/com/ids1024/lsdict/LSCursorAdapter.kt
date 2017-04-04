@@ -13,6 +13,7 @@ public class LSCursorAdapter(context: Context, c: Cursor) : CursorAdapter(contex
     override public fun newView(context: Context, cursor: Cursor, parent: ViewGroup) : View {
         return LayoutInflater.from(context).inflate(R.layout.result, parent, false)
     }
+
     override public fun bindView(view: View, context: Context, cursor: Cursor) {
         val tv = view.findViewById(R.id.result) as TextView
         val html = cursor.getString(2)

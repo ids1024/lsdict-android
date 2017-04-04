@@ -14,6 +14,7 @@ import android.os.Bundle
 public class LSDict : ListActivity() {
     private lateinit var db: LSDatabase
     private var search_term: String = ""
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.main)
@@ -24,10 +25,12 @@ public class LSDict : ListActivity() {
             search(savedInstanceState.getString("search_term"))
         }
     }
+
     override fun onSaveInstanceState(outState: Bundle) {
         outState.putString("search_term", search_term)
         super.onSaveInstanceState(outState)
     }
+
     private fun search(word: String) {
         search_term = word
         val term = word.toLowerCase()
@@ -36,6 +39,7 @@ public class LSDict : ListActivity() {
         val result = db.search(term)
         listView.adapter = LSCursorAdapter(this, result)
     }
+
     override public fun onCreateOptionsMenu(menu: Menu) : Boolean {
         menuInflater.inflate(R.menu.main, menu)
         val searchManager = getSystemService(Context.SEARCH_SERVICE) as SearchManager
@@ -43,10 +47,12 @@ public class LSDict : ListActivity() {
         searchView.setSearchableInfo(searchManager.getSearchableInfo(componentName))
         return true
     }
+
     override protected fun onNewIntent(intent: Intent) {
         super.onNewIntent(intent)
         handleIntent(intent)
     }
+
     private fun handleIntent(intent: Intent) {
         if (intent.action == Intent.ACTION_SEARCH) {
             search(intent.getStringExtra(SearchManager.QUERY))
