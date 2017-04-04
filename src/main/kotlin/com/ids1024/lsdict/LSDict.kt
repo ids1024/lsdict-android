@@ -9,16 +9,27 @@ import android.content.Context
 import android.app.SearchManager
 import android.widget.SearchView
 import android.content.Intent
+import android.os.Bundle
 
 public class LSDict : ListActivity() {
     private lateinit var db: LSDatabase
+    private var search_term: String = ""
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.main)
         db = LSDatabase(this)
         handleIntent(intent)
+
+        if (savedInstanceState != null) {
+            search(savedInstanceState.getString("search_term"))
+        }
+    }
+    override fun onSaveInstanceState(outState: Bundle) {
+        outState.putString("search_term", search_term)
+        super.onSaveInstanceState(outState)
     }
     private fun search(word: String) {
+        search_term = word
         val term = word.toLowerCase()
                        .replace('j', 'i')
                        .replace('v', 'u')
