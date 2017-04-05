@@ -3,7 +3,6 @@ package com.ids1024.lsdict
 import android.app.ListActivity
 import android.os.Bundle
 import android.database.sqlite.SQLiteDatabase
-import android.widget.SimpleCursorAdapter
 import android.view.Menu
 import android.content.Context
 import android.app.SearchManager
