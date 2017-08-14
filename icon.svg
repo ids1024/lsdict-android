@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="210mm"
+   height="297mm"
+   viewBox="0 0 210 297"
+   version="1.1"
+   id="svg8"
+   inkscape:version="0.92.2 5c3e80d, 2017-08-06"
+   sodipodi:docname="icon.svg">
+  <defs
+     id="defs2" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.98994949"
+     inkscape:cx="396.86007"
+     inkscape:cy="451.62353"
+     inkscape:document-units="mm"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     inkscape:window-width="1916"
+     inkscape:window-height="1033"
+     inkscape:window-x="0"
+     inkscape:window-y="45"
+     inkscape:window-maximized="0" />
+  <metadata
+     id="metadata5">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <rect
+       style="opacity:1;fill:#008080;fill-opacity:1;stroke:none;stroke-width:0.26458332;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="rect820"
+       width="124.73214"
+       height="124.73214"
+       x="46.113098"
+       y="99.696426" />
+    <flowRoot
+       xml:space="preserve"
+       id="flowRoot822"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:160px;line-height:125%;font-family:Arial;-inkscape-font-specification:Arial;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       transform="matrix(0.26458333,0,0,0.26458333,53.721175,-53.988445)"><flowRegion
+         id="flowRegion824"
+         style="font-size:160px"><rect
+           id="rect826"
+           width="651.54846"
+           height="307.08636"
+           x="-9.0913725"
+           y="552.79364"
+           style="font-size:160px" /></flowRegion><flowPara
+         id="flowPara828"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:173.33332825px;line-height:184.99994278%;font-family:Ubuntu;-inkscape-font-specification:Ubuntu;fill:#ffffff">Lewis</flowPara></flowRoot>    <flowRoot
+       xml:space="preserve"
+       id="flowRoot822-4"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:120px;line-height:125%;font-family:Arial;-inkscape-font-specification:Arial;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       transform="matrix(0.26458333,0,0,0.26458333,90.637322,14.056109)"><flowRegion
+         id="flowRegion824-6"
+         style="font-size:120px"><rect
+           id="rect826-9"
+           width="607.10168"
+           height="211.12189"
+           x="-9.0913725"
+           y="552.79364"
+           style="font-size:120px" /></flowRegion><flowPara
+         id="flowPara828-4"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:120px;line-height:184.99994278%;font-family:Ubuntu;-inkscape-font-specification:Ubuntu;fill:#ffffff">Short</flowPara></flowRoot>    <flowRoot
+       xml:space="preserve"
+       id="flowRoot822-2"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:160px;line-height:125%;font-family:Arial;-inkscape-font-specification:Arial;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       transform="matrix(0.26458333,0,0,0.26458333,46.459707,-34.445216)"><flowRegion
+         id="flowRegion824-2"
+         style="font-size:160px"><rect
+           id="rect826-6"
+           width="738.42157"
+           height="485.88336"
+           x="-9.0913725"
+           y="552.79364"
+           style="font-size:160px" /></flowRegion><flowPara
+         id="flowPara828-41"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:266.66665649px;line-height:184.99994278%;font-family:Ubuntu;-inkscape-font-specification:Ubuntu;fill:#ffffff">&amp;</flowPara></flowRoot>  </g>
+</svg>
