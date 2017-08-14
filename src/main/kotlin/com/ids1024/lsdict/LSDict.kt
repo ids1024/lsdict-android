@@ -34,7 +34,7 @@ public class LSDict : ListActivity() {
         val term = word.toLowerCase()
                        .replace('j', 'i')
                        .replace('v', 'u')
-        val result = db.search(term)
+        val result = db.search("word=?", arrayOf(term))
         listView.adapter = LSCursorAdapter(this, result)
     }
 
@@ -53,7 +53,10 @@ public class LSDict : ListActivity() {
 
     private fun handleIntent(intent: Intent) {
         if (intent.action == Intent.ACTION_SEARCH) {
-            search(intent.getStringExtra(SearchManager.QUERY))
+            val query = intent.getStringExtra(SearchManager.QUERY)
+            if (query != null) {
+                search(query)
+            }
         }
     }
 }

@@ -8,10 +8,9 @@ import com.readystatesoftware.sqliteasset.SQLiteAssetHelper
 val DB_VERSION = 1
 
 public class LSDatabase(context: Context) : SQLiteAssetHelper(context, "lewis.db", null, DB_VERSION) {
-    public fun search(word: String) : Cursor {
-        val db = getReadableDatabase()
+    public fun search(selection: String?, selectionArgs: Array<String>?) : Cursor {
         val qb = SQLiteQueryBuilder()
         qb.tables = "dictionary"
-        return qb.query(db, null, "word=?", arrayOf(word), null, null, null)
+        return qb.query(readableDatabase, null, selection, selectionArgs, null, null, null)
     }
 }
