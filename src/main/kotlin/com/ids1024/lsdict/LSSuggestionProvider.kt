@@ -28,10 +28,6 @@ public class LSSuggestionProvider : ContentProvider() {
     }
 
     override fun query(uri: Uri, projection: Array<String>?, selection: String?, selectionArgs: Array<String>?, sortOrder: String?) : Cursor {
-        // TODO
-        // val query = uri.lastPathSegment.toLowerCase()
-        //                                .replace('j', 'i')
-        //                                .replace('v', 'u')
         return LSCursor(db.search(selection, selectionArgs))
     }
 

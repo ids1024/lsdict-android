@@ -11,6 +11,10 @@ public class LSDatabase(context: Context) : SQLiteAssetHelper(context, "lewis.db
     public fun search(selection: String?, selectionArgs: Array<String>?) : Cursor {
         val qb = SQLiteQueryBuilder()
         qb.tables = "dictionary"
+        // XXX replace with better method if possible
+        val selectionArgs = selectionArgs?.map(fun(s) = s.toLowerCase()
+                                                         .replace('j', 'i')
+                                                         .replace('v', 'u'))?.toTypedArray()
         return qb.query(readableDatabase, null, selection, selectionArgs, null, null, null)
     }
 }
