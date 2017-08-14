@@ -20,7 +20,7 @@ android {
         release {
             storeFile file("release.keystore")
             storePassword System.getenv("KEYPWD")
-            keyAlias "releaseKey"
+            keyAlias "upload"
             keyPassword System.getenv("KEYPWD")
         }
     }
