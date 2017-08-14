@@ -11,11 +11,11 @@ import android.database.CursorWrapper
 class LSCursor(cursor: Cursor) : CursorWrapper(cursor) {
     override fun getColumnIndex(columnName: String) : Int {
         if (columnName == SearchManager.SUGGEST_COLUMN_TEXT_1 ||
-	    columnName == SearchManager.SUGGEST_COLUMN_QUERY) {
-	    return super.getColumnIndex("word")
-	} else {
-	    return super.getColumnIndex(columnName)
-	}
+            columnName == SearchManager.SUGGEST_COLUMN_QUERY) {
+            return super.getColumnIndex("word")
+        } else {
+            return super.getColumnIndex(columnName)
+        }
     }
 }
 
