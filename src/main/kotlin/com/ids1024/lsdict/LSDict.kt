@@ -4,6 +4,7 @@ import android.app.ListActivity
 import android.os.Bundle
 import android.database.sqlite.SQLiteDatabase
 import android.view.Menu
+import android.view.MenuItem
 import android.content.Context
 import android.app.SearchManager
 import android.widget.SearchView
@@ -41,6 +42,17 @@ public class LSDict : ListActivity() {
         val searchView = menu.findItem(R.id.search).actionView as SearchView
         searchView.setSearchableInfo(searchManager.getSearchableInfo(componentName))
         return true
+    }
+
+    override public fun onOptionsItemSelected(item: MenuItem) : Boolean {
+        when (item.itemId) {
+            R.id.about -> {
+                val intent = Intent(this, LSAbout::class.java)
+                startActivity(intent)
+                return true
+            }
+            else -> return super.onOptionsItemSelected(item)
+        }
     }
 
     override protected fun onNewIntent(intent: Intent) {

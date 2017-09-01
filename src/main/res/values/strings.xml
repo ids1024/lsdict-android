@@ -1,5 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Lewis and Short Latin Dictionary</string>
+    <string name="app_name">Lewis and Short</string>
     <string name="search_title">Search</string>
+    <string name="about_title">About</string>
+    <string name="about_text">
+        <i>A Latin Dictionary</i> by Charlton T. Lewis and Charles Short was
+        first published in 1879 and is now in the public domain. It is one of
+        the most extensive Latin dictionaries in the English language.\n\n
+
+        This version of the dictionary was digitized by the Perseus Digital
+        Library at Tufts University, under the Creative Commons
+        Attribution-ShareAlike 3.0 United States License. The xml data files
+        are available at https://github.com/PerseusDL/lexica.\n\n
+
+        This app is Open Source, under the MIT License. The source code is
+        available at https://github.com/ids1024/lsdict-android.
+    </string>
 </resources>
