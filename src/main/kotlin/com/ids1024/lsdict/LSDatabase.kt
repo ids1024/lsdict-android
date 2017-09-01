@@ -5,7 +5,7 @@ import android.database.Cursor
 import android.database.sqlite.SQLiteQueryBuilder
 import com.readystatesoftware.sqliteasset.SQLiteAssetHelper
 
-val DB_VERSION = 2
+val DB_VERSION = 3
 
 public class LSDatabase(context: Context) : SQLiteAssetHelper(context, "lewis.db", null, DB_VERSION) {
     init {

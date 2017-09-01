@@ -31,7 +31,7 @@ public class LSDict : ListActivity() {
 
     private fun search(word: String) {
         search_term = word
-        val result = db.search("word=?", arrayOf(word))
+        val result = db.search("key=?", arrayOf(word))
         listView.adapter = LSCursorAdapter(this, result)
     }
 
