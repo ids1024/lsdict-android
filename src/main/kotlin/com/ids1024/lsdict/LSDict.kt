@@ -16,7 +16,7 @@ import kotlinx.android.synthetic.main.main.recycler_view
 import kotlinx.android.synthetic.main.main.empty_text
 
 
-public class LSDict : AppCompatActivity() {
+class LSDict : AppCompatActivity() {
     private lateinit var db: LSDatabase
     private var search_term: String = ""
 
@@ -54,7 +54,7 @@ public class LSDict : AppCompatActivity() {
         recycler_view.adapter = LSSearchAdapter(result)
     }
 
-    override public fun onCreateOptionsMenu(menu: Menu) : Boolean {
+    override fun onCreateOptionsMenu(menu: Menu) : Boolean {
         menuInflater.inflate(R.menu.main, menu)
         val searchManager = getSystemService(Context.SEARCH_SERVICE) as SearchManager
         val searchView = menu.findItem(R.id.search).actionView as SearchView
@@ -62,7 +62,7 @@ public class LSDict : AppCompatActivity() {
         return true
     }
 
-    override public fun onOptionsItemSelected(item: MenuItem) : Boolean {
+    override fun onOptionsItemSelected(item: MenuItem) : Boolean {
         when (item.itemId) {
             R.id.about -> {
                 val intent = Intent(this, LSAbout::class.java)
@@ -73,7 +73,7 @@ public class LSDict : AppCompatActivity() {
         }
     }
 
-    override protected fun onNewIntent(intent: Intent) {
+    override fun onNewIntent(intent: Intent) {
         super.onNewIntent(intent)
         handleIntent(intent)
     }

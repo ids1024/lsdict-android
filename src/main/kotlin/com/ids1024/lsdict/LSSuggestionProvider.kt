@@ -8,7 +8,7 @@ import android.content.ContentValues
 import android.app.SearchManager
 import android.database.CursorWrapper
 
-class LSCursor(cursor: Cursor) : CursorWrapper(cursor) {
+private class LSCursor(cursor: Cursor) : CursorWrapper(cursor) {
     override fun getColumnIndex(columnName: String) : Int {
         if (columnName == SearchManager.SUGGEST_COLUMN_QUERY) {
             return super.getColumnIndex("key")

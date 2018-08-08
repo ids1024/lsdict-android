@@ -11,7 +11,7 @@ import android.support.v7.widget.RecyclerView
 
 
 class LSSearchAdapter(cursor: Cursor) : RecyclerView.Adapter<LSSearchAdapter.ViewHolder>() {
-    val cursor = cursor
+    private val cursor = cursor
 	
     override fun getItemCount(): Int {
         return cursor.getCount()
