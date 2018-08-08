@@ -1,6 +1,5 @@
 package com.ids1024.lsdict
 
-import android.content.Context
 import android.database.Cursor
 import android.widget.TextView
 import android.view.LayoutInflater
@@ -9,12 +8,11 @@ import android.view.ViewGroup
 import android.text.Html
 import android.support.v7.widget.RecyclerView
 
-
 class LSSearchAdapter(cursor: Cursor) : RecyclerView.Adapter<LSSearchAdapter.ViewHolder>() {
     private val cursor = cursor
-	
+
     override fun getItemCount(): Int {
-        return cursor.getCount()
+        return cursor.count
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {

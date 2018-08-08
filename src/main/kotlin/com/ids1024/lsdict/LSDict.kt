@@ -5,7 +5,7 @@ import android.view.Menu
 import android.view.MenuItem
 import android.content.Context
 import android.app.SearchManager
-import android.view.View 
+import android.view.View
 import android.content.Intent
 import android.support.v7.widget.SearchView
 import android.support.v7.widget.LinearLayoutManager
@@ -14,7 +14,6 @@ import android.support.v7.app.AppCompatActivity
 
 import kotlinx.android.synthetic.main.main.recycler_view
 import kotlinx.android.synthetic.main.main.empty_text
-
 
 class LSDict : AppCompatActivity() {
     private lateinit var db: LSDatabase
@@ -29,7 +28,7 @@ class LSDict : AppCompatActivity() {
 
         recycler_view.layoutManager = LinearLayoutManager(this)
         recycler_view.addItemDecoration(DividerItemDecoration(this,
-	    DividerItemDecoration.VERTICAL))
+            DividerItemDecoration.VERTICAL))
 
         handleIntent(intent)
 
@@ -46,15 +45,15 @@ class LSDict : AppCompatActivity() {
     private fun search(word: String) {
         search_term = word
         val result = db.search("key=?", arrayOf(word))
-	if (result.count != 0) {
-		empty_text.visibility = View.INVISIBLE
-	} else {
-		empty_text.visibility = View.VISIBLE
-	}
+        empty_text.visibility = if (result.count != 0) {
+            View.INVISIBLE
+        } else {
+            View.VISIBLE
+        }
         recycler_view.adapter = LSSearchAdapter(result)
     }
 
-    override fun onCreateOptionsMenu(menu: Menu) : Boolean {
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
         menuInflater.inflate(R.menu.main, menu)
         val searchManager = getSystemService(Context.SEARCH_SERVICE) as SearchManager
         val searchView = menu.findItem(R.id.search).actionView as SearchView
@@ -62,14 +61,13 @@ class LSDict : AppCompatActivity() {
         return true
     }
 
-    override fun onOptionsItemSelected(item: MenuItem) : Boolean {
-        when (item.itemId) {
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
             R.id.about -> {
-                val intent = Intent(this, LSAbout::class.java)
-                startActivity(intent)
-                return true
+                startActivity(Intent(this, LSAbout::class.java))
+                true
             }
-            else -> return super.onOptionsItemSelected(item)
+            else -> super.onOptionsItemSelected(item)
         }
     }
 

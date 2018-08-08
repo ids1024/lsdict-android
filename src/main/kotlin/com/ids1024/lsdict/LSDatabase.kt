@@ -5,20 +5,20 @@ import android.database.Cursor
 import android.database.sqlite.SQLiteQueryBuilder
 import com.readystatesoftware.sqliteasset.SQLiteAssetHelper
 
-val DB_VERSION = 4
+private val DB_VERSION = 4
 
 public class LSDatabase(context: Context) : SQLiteAssetHelper(context, "lewis.db", null, DB_VERSION) {
     init {
         setForcedUpgrade()
     }
 
-    public fun search(selection: String?, selectionArgs: Array<String>?) : Cursor {
+    public fun search(selection: String?, selectionArgs: Array<String>?): Cursor {
         val qb = SQLiteQueryBuilder()
         qb.tables = "dictionary"
         // XXX replace with better method if possible
-        val selectionArgs = selectionArgs?.map(fun(s) = s.toLowerCase()
-                                                         .replace('j', 'i')
-                                                         .replace('v', 'u'))?.toTypedArray()
+        val selectionArgs = selectionArgs?.map { s ->
+            s.toLowerCase().replace('j', 'i').replace('v', 'u')
+        }?.toTypedArray()
         return qb.query(readableDatabase, null, selection, selectionArgs, null, null, null)
     }
 }
