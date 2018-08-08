@@ -9,19 +9,16 @@ import android.view.ViewGroup
 import android.text.Html
 import android.support.v7.widget.RecyclerView
 
-import android.util.Log
 
 class LSSearchAdapter(cursor: Cursor) : RecyclerView.Adapter<LSSearchAdapter.ViewHolder>() {
     val cursor = cursor
 	
     override fun getItemCount(): Int {
-        Log.w("words", "count: ${cursor.getCount()}")
         return cursor.getCount()
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         cursor.moveToPosition(position)
-        Log.w("words", "At pos $position: ${cursor.getString(3)}")
         val html = cursor.getString(3)
         holder.text_view.text = Html.fromHtml(html)
     }

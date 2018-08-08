@@ -16,16 +16,12 @@ import kotlinx.android.synthetic.main.main.recycler_view
 import kotlinx.android.synthetic.main.main.empty_text
 
 
-import android.util.Log
-
 public class LSDict : AppCompatActivity() {
     private lateinit var db: LSDatabase
     private var search_term: String = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-        Log.w("words", "onCreate()")
 
         setContentView(R.layout.main)
 
@@ -56,7 +52,6 @@ public class LSDict : AppCompatActivity() {
 		empty_text.visibility = View.VISIBLE
 	}
         recycler_view.adapter = LSSearchAdapter(result)
-        Log.w("words", "Set adapter")
     }
 
     override public fun onCreateOptionsMenu(menu: Menu) : Boolean {
@@ -79,7 +74,6 @@ public class LSDict : AppCompatActivity() {
     }
 
     override protected fun onNewIntent(intent: Intent) {
-        Log.w("words", "On new intent")
         super.onNewIntent(intent)
         handleIntent(intent)
     }
