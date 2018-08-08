@@ -1,23 +1,40 @@
 package com.ids1024.lsdict
 
-import android.app.ListActivity
 import android.os.Bundle
-import android.database.sqlite.SQLiteDatabase
 import android.view.Menu
 import android.view.MenuItem
 import android.content.Context
 import android.app.SearchManager
-import android.widget.SearchView
+import android.view.View 
 import android.content.Intent
+import android.support.v7.widget.SearchView
+import android.support.v7.widget.LinearLayoutManager
+import android.support.v7.widget.DividerItemDecoration
+import android.support.v7.app.AppCompatActivity
 
-public class LSDict : ListActivity() {
+import kotlinx.android.synthetic.main.main.recycler_view
+import kotlinx.android.synthetic.main.main.empty_text
+
+
+import android.util.Log
+
+public class LSDict : AppCompatActivity() {
     private lateinit var db: LSDatabase
     private var search_term: String = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        Log.w("words", "onCreate()")
+
         setContentView(R.layout.main)
+
         db = LSDatabase(this)
+
+        recycler_view.layoutManager = LinearLayoutManager(this)
+        recycler_view.addItemDecoration(DividerItemDecoration(this,
+	    DividerItemDecoration.VERTICAL))
+
         handleIntent(intent)
 
         if (savedInstanceState != null) {
@@ -33,7 +50,13 @@ public class LSDict : ListActivity() {
     private fun search(word: String) {
         search_term = word
         val result = db.search("key=?", arrayOf(word))
-        listView.adapter = LSCursorAdapter(this, result)
+	if (result.count != 0) {
+		empty_text.visibility = View.INVISIBLE
+	} else {
+		empty_text.visibility = View.VISIBLE
+	}
+        recycler_view.adapter = LSSearchAdapter(result)
+        Log.w("words", "Set adapter")
     }
 
     override public fun onCreateOptionsMenu(menu: Menu) : Boolean {
@@ -56,6 +79,7 @@ public class LSDict : ListActivity() {
     }
 
     override protected fun onNewIntent(intent: Intent) {
+        Log.w("words", "On new intent")
         super.onNewIntent(intent)
         handleIntent(intent)
     }

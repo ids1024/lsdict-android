@@ -12,6 +12,7 @@ buildscript {
 
 apply plugin: 'android'
 apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
 
 android {
     compileSdkVersion 27
@@ -42,4 +43,6 @@ repositories {
 dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
     implementation 'com.readystatesoftware.sqliteasset:sqliteassethelper:+'
+    implementation 'com.android.support:appcompat-v7:27.1.1'
+    implementation 'com.android.support:design:27.1.1'
 }
