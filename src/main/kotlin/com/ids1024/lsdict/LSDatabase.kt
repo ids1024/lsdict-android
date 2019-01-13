@@ -12,13 +12,13 @@ public class LSDatabase(context: Context) : SQLiteAssetHelper(context, "lewis.db
         setForcedUpgrade()
     }
 
-    public fun search(selection: String?, selectionArgs: Array<String>?): Cursor {
+    public fun search(selection: String?, selectionArgs: Array<String>?, groupBy: String? = null): Cursor {
         val qb = SQLiteQueryBuilder()
         qb.tables = "dictionary"
         // XXX replace with better method if possible
         val selectionArgs = selectionArgs?.map { s ->
             s.toLowerCase().replace('j', 'i').replace('v', 'u')
         }?.toTypedArray()
-        return qb.query(readableDatabase, null, selection, selectionArgs, null, null, null)
+        return qb.query(readableDatabase, null, selection, selectionArgs, groupBy, null, null)
     }
 }

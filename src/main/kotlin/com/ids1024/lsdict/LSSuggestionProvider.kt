@@ -29,7 +29,8 @@ public class LSSuggestionProvider : ContentProvider() {
     }
 
     override fun query(uri: Uri, projection: Array<String>?, selection: String?, selectionArgs: Array<String>?, sortOrder: String?): Cursor {
-        return LSCursor(db.search(selection, selectionArgs))
+        // Use groupBy to avoid same word appearing twice (when it has multiple definitions)
+        return LSCursor(db.search(selection, selectionArgs, groupBy="key,word"))
     }
 
     override fun insert(uri: Uri, values: ContentValues): Uri? {
