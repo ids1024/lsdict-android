@@ -17,7 +17,7 @@ public class LSDatabase(context: Context) : SQLiteAssetHelper(context, "lewis.db
         qb.tables = "dictionary"
         // XXX replace with better method if possible
         val selectionArgs = selectionArgs?.map { s ->
-            s.toLowerCase().replace('j', 'i').replace('v', 'u')
+            s.lowercase().replace('j', 'i').replace('v', 'u')
         }?.toTypedArray()
         return qb.query(readableDatabase, null, selection, selectionArgs, groupBy, null, null)
     }
