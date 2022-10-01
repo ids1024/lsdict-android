@@ -10,7 +10,7 @@
     android:padding="10dp"
     android:text="No results to display. Press the search button to search for a word."
     />
-<android.support.v7.widget.RecyclerView
+<androidx.recyclerview.widget.RecyclerView
     android:id="@+id/recycler_view"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
