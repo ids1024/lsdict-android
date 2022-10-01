@@ -33,7 +33,7 @@ class LSDict : AppCompatActivity() {
         handleIntent(intent)
 
         if (savedInstanceState != null) {
-            search(savedInstanceState.getString("search_term"))
+            search(savedInstanceState.getString("search_term")!!)
         }
     }
 

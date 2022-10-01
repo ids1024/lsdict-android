@@ -24,7 +24,7 @@ public class LSSuggestionProvider : ContentProvider() {
     private lateinit var db: LSDatabase
 
     override fun onCreate(): Boolean {
-        db = LSDatabase(context)
+        db = LSDatabase(context!!)
         return true
     }
 
@@ -33,11 +33,11 @@ public class LSSuggestionProvider : ContentProvider() {
         return LSCursor(db.search(selection, selectionArgs, groupBy="key,word"))
     }
 
-    override fun insert(uri: Uri, values: ContentValues): Uri? {
+    override fun insert(uri: Uri, values: ContentValues?): Uri? {
         return null
     }
 
-    override fun update(uri: Uri, values: ContentValues, selection: String?, selectionArgs: Array<String>?): Int {
+    override fun update(uri: Uri, values: ContentValues?, selection: String?, selectionArgs: Array<String>?): Int {
         return 0
     }
 

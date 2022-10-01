@@ -25,7 +25,5 @@
     <provider
         android:name="com.ids1024.lsdict.LSSuggestionProvider"
         android:authorities="com.ids1024.lsdict.LSSuggestionProvider" />
-
     </application>
-    <uses-sdk android:minSdkVersion="14" android:targetSdkVersion="26" />
 </manifest>
