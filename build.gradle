@@ -1,11 +1,11 @@
 buildscript {
-    ext.kotlin_version = '1.7.0'
+    ext.kotlin_version = '1.7.10'
     repositories {
-        jcenter()
-	google()
+        mavenCentral()
+	    google()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:7.2.1'
+        classpath 'com.android.tools.build:gradle:7.2.2'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
     }
 }
@@ -14,7 +14,7 @@ apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 
 android {
-    compileSdkVersion 32
+    compileSdkVersion 33
 
     buildFeatures {
         viewBinding true
@@ -22,7 +22,7 @@ android {
 
     defaultConfig {
         minSdkVersion 14
-        targetSdkVersion 32
+        targetSdkVersion 33
     }
 
     signingConfigs {
@@ -44,7 +44,7 @@ android {
 }
 
 repositories {
-    jcenter()
+    mavenCentral()
     google()
 }
 
@@ -56,20 +56,18 @@ dependencies {
     ktlint "com.github.shyiko:ktlint:0.26.0"
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
     implementation 'com.readystatesoftware.sqliteasset:sqliteassethelper:+'
-    implementation 'androidx.appcompat:appcompat:1.0.0'
-    implementation 'com.google.android.material:material:1.0.0'
+    implementation 'androidx.appcompat:appcompat:1.5.1'
+    implementation 'com.google.android.material:material:1.6.1'
 }
 
 task ktlint(type: JavaExec, group: "verification") {
     description = "Check Kotlin code style."
     classpath = configurations.ktlint
-    main = "com.github.shyiko.ktlint.Main"
     args "src/**/*.kt"
 }
 
 task ktlintFormat(type: JavaExec, group: "formatting") {
     description = "Fix Kotlin code style deviations."
     classpath = configurations.ktlint
-    main = "com.github.shyiko.ktlint.Main"
     args "-F", "src/**/*.kt"
 }
