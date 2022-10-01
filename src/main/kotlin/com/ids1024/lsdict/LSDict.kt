@@ -12,22 +12,25 @@ import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.DividerItemDecoration
 import android.support.v7.app.AppCompatActivity
 
-import kotlinx.android.synthetic.main.main.recycler_view
-import kotlinx.android.synthetic.main.main.empty_text
+import com.ids1024.lsdict.databinding.MainBinding
+//import kotlinx.android.synthetic.main.main.recycler_view
+//import kotlinx.android.synthetic.main.main.empty_text
 
 class LSDict : AppCompatActivity() {
     private lateinit var db: LSDatabase
     private var search_term: String = ""
+    private lateinit var binding: MainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        // setContentView(R.layout.main)
         super.onCreate(savedInstanceState)
-
-        setContentView(R.layout.main)
+        binding = MainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         db = LSDatabase(this)
 
-        recycler_view.layoutManager = LinearLayoutManager(this)
-        recycler_view.addItemDecoration(DividerItemDecoration(this,
+        binding.recyclerView.layoutManager = LinearLayoutManager(this)
+        binding.recyclerView.addItemDecoration(DividerItemDecoration(this,
             DividerItemDecoration.VERTICAL))
 
         handleIntent(intent)
@@ -45,12 +48,12 @@ class LSDict : AppCompatActivity() {
     private fun search(word: String) {
         search_term = word
         val result = db.search("key=?", arrayOf(word))
-        empty_text.visibility = if (result.count != 0) {
+        binding.emptyText.visibility = if (result.count != 0) {
             View.INVISIBLE
         } else {
             View.VISIBLE
         }
-        recycler_view.adapter = LSSearchAdapter(result)
+        binding.recyclerView.adapter = LSSearchAdapter(result)
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
