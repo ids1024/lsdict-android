@@ -4,11 +4,11 @@
     <item android:id="@+id/search"
           android:title="@string/search_title"
           android:icon="@drawable/ic_search"
-          app:showAsAction="collapseActionView|always"
+          app:showAsAction="collapseActionView|ifRoom"
 	  app:actionLayout="@layout/search"
           />
     <item android:id="@+id/about"
           android:title="@string/about_title"
-          android:showAsAction="never"
+          app:showAsAction="never"
           />
 </menu>
