@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.text.Html
+import androidx.core.text.HtmlCompat
 import androidx.recyclerview.widget.RecyclerView
 
 class LSSearchAdapter(cursor: Cursor) : RecyclerView.Adapter<LSSearchAdapter.ViewHolder>() {
@@ -18,7 +19,7 @@ class LSSearchAdapter(cursor: Cursor) : RecyclerView.Adapter<LSSearchAdapter.Vie
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         cursor.moveToPosition(position)
         val html = cursor.getString(3)
-        holder.text_view.text = Html.fromHtml(html, 0)
+        holder.text_view.text = HtmlCompat.fromHtml(html, 0)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
