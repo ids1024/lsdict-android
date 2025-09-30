@@ -1,17 +1,11 @@
 buildscript {
     ext.kotlin_version = "2.0.10"
-    repositories {
-        mavenCentral()
-        google()
-    }
-    dependencies {
-        classpath("com.android.tools.build:gradle:8.13.0")
-        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version")
-    }
 }
 
-apply(plugin: "com.android.application")
-apply(plugin: "kotlin-android")
+plugins {
+    id("com.android.application") version "8.13.0"
+    id("org.jetbrains.kotlin.android") version "$kotlin_version"
+}
 
 kotlin {
     jvmToolchain {
