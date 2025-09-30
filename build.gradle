@@ -5,7 +5,7 @@ buildscript {
         google()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:8.12.1'
+        classpath 'com.android.tools.build:gradle:8.13.0'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
     }
 }
@@ -20,7 +20,7 @@ kotlin {
 }
 
 android {
-    compileSdk 35
+    compileSdkVersion 35
 
     buildFeatures {
         viewBinding true
@@ -69,11 +69,12 @@ configurations {
 }
 
 dependencies {
-    ktlint "com.github.shyiko:ktlint:0.26.0"
+    ktlint "com.github.shyiko:ktlint:0.31.0"
+    //noinspection GradleDependency
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
     implementation 'com.readystatesoftware.sqliteasset:sqliteassethelper:+'
-    implementation 'androidx.appcompat:appcompat:1.7.0'
-    implementation 'com.google.android.material:material:1.12.0'
+    implementation 'androidx.appcompat:appcompat:1.7.1'
+    implementation 'com.google.android.material:material:1.13.0'
 }
 
 task ktlint(type: JavaExec, group: "verification") {
