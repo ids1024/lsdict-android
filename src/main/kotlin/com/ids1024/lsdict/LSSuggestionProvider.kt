@@ -1,15 +1,17 @@
 package com.ids1024.lsdict
 
-import android.content.ContentProvider
-import android.database.Cursor
-import android.net.Uri
-import android.content.ContentValues
 import android.app.SearchManager
+import android.content.ContentProvider
+import android.content.ContentValues
+import android.database.Cursor
 import android.database.CursorWrapper
+import android.net.Uri
 
-private class LSCursor(cursor: Cursor) : CursorWrapper(cursor) {
-    override fun getColumnIndex(columnName: String): Int {
-        return when (columnName) {
+private class LSCursor(
+    cursor: Cursor,
+) : CursorWrapper(cursor) {
+    override fun getColumnIndex(columnName: String): Int =
+        when (columnName) {
             SearchManager.SUGGEST_COLUMN_QUERY ->
                 super.getColumnIndex("key")
             SearchManager.SUGGEST_COLUMN_TEXT_1 ->
@@ -17,7 +19,6 @@ private class LSCursor(cursor: Cursor) : CursorWrapper(cursor) {
             else ->
                 super.getColumnIndex(columnName)
         }
-    }
 }
 
 public class LSSuggestionProvider : ContentProvider() {
@@ -28,24 +29,34 @@ public class LSSuggestionProvider : ContentProvider() {
         return true
     }
 
-    override fun query(uri: Uri, projection: Array<String>?, selection: String?, selectionArgs: Array<String>?, sortOrder: String?): Cursor {
+    override fun query(
+        uri: Uri,
+        projection: Array<String>?,
+        selection: String?,
+        selectionArgs: Array<String>?,
+        sortOrder: String?,
+    ): Cursor {
         // Use groupBy to avoid same word appearing twice (when it has multiple definitions)
-        return LSCursor(db.search(selection, selectionArgs, groupBy="key,word"))
+        return LSCursor(db.search(selection, selectionArgs, groupBy = "key,word"))
     }
 
-    override fun insert(uri: Uri, values: ContentValues?): Uri? {
-        return null
-    }
+    override fun insert(
+        uri: Uri,
+        values: ContentValues?,
+    ): Uri? = null
 
-    override fun update(uri: Uri, values: ContentValues?, selection: String?, selectionArgs: Array<String>?): Int {
-        return 0
-    }
+    override fun update(
+        uri: Uri,
+        values: ContentValues?,
+        selection: String?,
+        selectionArgs: Array<String>?,
+    ): Int = 0
 
-    override fun delete(uri: Uri, selection: String?, selectionArgs: Array<String>?): Int {
-        return 0
-    }
+    override fun delete(
+        uri: Uri,
+        selection: String?,
+        selectionArgs: Array<String>?,
+    ): Int = 0
 
-    override fun getType(uri: Uri): String {
-        return SearchManager.SUGGEST_MIME_TYPE
-    }
+    override fun getType(uri: Uri): String = SearchManager.SUGGEST_MIME_TYPE
 }

@@ -1,20 +1,19 @@
 package com.ids1024.lsdict
 
+import android.app.SearchManager
+import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
-import android.content.Context
-import android.app.SearchManager
 import android.view.View
-import android.content.Intent
-import androidx.appcompat.widget.SearchView
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.appcompat.app.AppCompatActivity
-
+import androidx.appcompat.widget.SearchView
+import androidx.recyclerview.widget.DividerItemDecoration
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.ids1024.lsdict.databinding.MainBinding
-//import kotlinx.android.synthetic.main.main.recycler_view
-//import kotlinx.android.synthetic.main.main.empty_text
+// import kotlinx.android.synthetic.main.main.recycler_view
+// import kotlinx.android.synthetic.main.main.empty_text
 
 class LSDict : AppCompatActivity() {
     private lateinit var db: LSDatabase
@@ -34,8 +33,8 @@ class LSDict : AppCompatActivity() {
         binding.recyclerView.addItemDecoration(
             DividerItemDecoration(
                 this,
-                DividerItemDecoration.VERTICAL
-            )
+                DividerItemDecoration.VERTICAL,
+            ),
         )
 
         handleIntent(intent)
@@ -53,11 +52,12 @@ class LSDict : AppCompatActivity() {
     private fun search(word: String) {
         search_term = word
         val result = db.search("key=?", arrayOf(word))
-        binding.emptyText.visibility = if (result.count != 0) {
-            View.INVISIBLE
-        } else {
-            View.VISIBLE
-        }
+        binding.emptyText.visibility =
+            if (result.count != 0) {
+                View.INVISIBLE
+            } else {
+                View.VISIBLE
+            }
         binding.recyclerView.adapter = LSSearchAdapter(result)
     }
 
@@ -69,15 +69,14 @@ class LSDict : AppCompatActivity() {
         return true
     }
 
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        return when (item.itemId) {
+    override fun onOptionsItemSelected(item: MenuItem): Boolean =
+        when (item.itemId) {
             R.id.about -> {
                 startActivity(Intent(this, LSAbout::class.java))
                 true
             }
             else -> super.onOptionsItemSelected(item)
         }
-    }
 
     override fun onNewIntent(intent: Intent) {
         super.onNewIntent(intent)
