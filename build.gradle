@@ -1,17 +1,17 @@
 buildscript {
-    ext.kotlin_version = '2.0.10'
+    ext.kotlin_version = "2.0.10"
     repositories {
         mavenCentral()
         google()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:8.13.0'
-        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+        classpath("com.android.tools.build:gradle:8.13.0")
+        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version")
     }
 }
 
-apply plugin: 'com.android.application'
-apply plugin: 'kotlin-android'
+apply(plugin: "com.android.application")
+apply(plugin: "kotlin-android")
 
 kotlin {
     jvmToolchain {
@@ -20,34 +20,34 @@ kotlin {
 }
 
 android {
-    compileSdkVersion 35
+    compileSdkVersion(35)
 
     buildFeatures {
-        viewBinding true
+        viewBinding(true)
     }
 
     defaultConfig {
-        minSdkVersion 21
-        targetSdk 34
+        minSdkVersion(21)
+        targetSdk(34)
     }
 
     signingConfigs {
         release {
-            storeFile file("release.keystore")
-            storePassword System.getenv("KEYPWD")
-            keyAlias "upload"
-            keyPassword System.getenv("KEYPWD")
+            storeFile = file("release.keystore")
+            storePassword = System.getenv("KEYPWD")
+            keyAlias = "upload"
+            keyPassword = System.getenv("KEYPWD")
         }
     }
 
     buildTypes {
         release {
-            minifyEnabled false
-            proguardFile getDefaultProguardFile('proguard-android.txt')
-            signingConfig signingConfigs.release
+            minifyEnabled = false
+            signingConfig = signingConfigs.release
+            proguardFile(getDefaultProguardFile("proguard-android.txt"))
         }
     }
-    namespace 'com.ids1024.lsdict'
+    namespace "com.ids1024.lsdict"
 
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_22
@@ -69,12 +69,12 @@ configurations {
 }
 
 dependencies {
-    ktlint "com.pinterest.ktlint:ktlint-cli:1.7.1"
+    ktlint("com.pinterest.ktlint:ktlint-cli:1.7.1")
     //noinspection GradleDependency
-    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
-    implementation 'com.readystatesoftware.sqliteasset:sqliteassethelper:+'
-    implementation 'androidx.appcompat:appcompat:1.7.1'
-    implementation 'com.google.android.material:material:1.13.0'
+    implementation("org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version")
+    implementation("com.readystatesoftware.sqliteasset:sqliteassethelper:+")
+    implementation("androidx.appcompat:appcompat:1.7.1")
+    implementation("com.google.android.material:material:1.13.0")
 }
 
 tasks.register("ktlint", JavaExec) {
