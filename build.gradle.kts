@@ -3,7 +3,7 @@ buildscript {
 }
 
 plugins {
-    val kotlin_version : String by rootProject.extra
+    val kotlin_version: String by rootProject.extra
     id("com.android.application") version "8.13.0"
     id("org.jetbrains.kotlin.android") version kotlin_version
 }
@@ -38,7 +38,7 @@ android {
     buildTypes {
         getByName("release") {
             isMinifyEnabled = false
-            //signingConfig = signingConfigs.release
+            // signingConfig = signingConfigs.release
             proguardFile(getDefaultProguardFile("proguard-android.txt"))
         }
     }
@@ -62,7 +62,7 @@ repositories {
 val ktlint: Configuration by configurations.creating
 
 dependencies {
-    val kotlin_version : String by rootProject.extra
+    val kotlin_version: String by rootProject.extra
     ktlint("com.pinterest.ktlint:ktlint-cli:1.7.1")
     //noinspection GradleDependency
     implementation("org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version")
@@ -76,7 +76,7 @@ tasks.register<JavaExec>("ktlint") {
     description = "Check Kotlin code style."
     classpath = ktlint
     mainClass = "com.pinterest.ktlint.Main"
-    args("src/**/*.kt")
+    args("src/**/*.kt", "build.gradle.kts")
 }
 
 tasks.register<JavaExec>("ktlintFormat") {
@@ -84,5 +84,5 @@ tasks.register<JavaExec>("ktlintFormat") {
     description = "Fix Kotlin code style deviations."
     classpath = ktlint
     mainClass = "com.pinterest.ktlint.Main"
-    args("-F", "src/**/*.kt")
+    args("-F", "src/**/*.kt", "build.gradle.kts")
 }
