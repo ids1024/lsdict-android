@@ -22,7 +22,7 @@ class LSSearchAdapter(
     ) {
         cursor.moveToPosition(position)
         val html = cursor.getString(3)
-        holder.text_view.text = HtmlCompat.fromHtml(html, 0)
+        holder.textView.text = HtmlCompat.fromHtml(html, 0)
     }
 
     override fun onCreateViewHolder(
@@ -36,6 +36,6 @@ class LSSearchAdapter(
     class ViewHolder(
         view: View,
     ) : RecyclerView.ViewHolder(view) {
-        val text_view: TextView = view.findViewById(R.id.result_text)
+        val textView: TextView = view.findViewById(R.id.result_text)
     }
 }

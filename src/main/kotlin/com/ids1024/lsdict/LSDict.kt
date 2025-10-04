@@ -17,7 +17,7 @@ import com.ids1024.lsdict.databinding.MainBinding
 
 class LSDict : AppCompatActivity() {
     private lateinit var db: LSDatabase
-    private var search_term: String = ""
+    private var searchTerm: String = ""
     private lateinit var binding: MainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -45,12 +45,12 @@ class LSDict : AppCompatActivity() {
     }
 
     override fun onSaveInstanceState(outState: Bundle) {
-        outState.putString("search_term", search_term)
+        outState.putString("search_term", searchTerm)
         super.onSaveInstanceState(outState)
     }
 
     private fun search(word: String) {
-        search_term = word
+        searchTerm = word
         val result = db.search("key=?", arrayOf(word))
         binding.emptyText.visibility =
             if (result.count != 0) {

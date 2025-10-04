@@ -1,11 +1,11 @@
 buildscript {
-    val kotlin_version by extra("2.0.10")
+    val kotlinVersion by extra("2.0.10")
 }
 
 plugins {
-    val kotlin_version: String by rootProject.extra
+    val kotlinVersion: String by rootProject.extra
     id("com.android.application") version "8.13.0"
-    id("org.jetbrains.kotlin.android") version kotlin_version
+    id("org.jetbrains.kotlin.android") version kotlinVersion
 }
 
 kotlin {
@@ -62,10 +62,10 @@ repositories {
 val ktlint: Configuration by configurations.creating
 
 dependencies {
-    val kotlin_version: String by rootProject.extra
+    val kotlinVersion: String by rootProject.extra
     ktlint("com.pinterest.ktlint:ktlint-cli:1.7.1")
     //noinspection GradleDependency
-    implementation("org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version")
+    implementation("org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion")
     implementation("com.readystatesoftware.sqliteasset:sqliteassethelper:+")
     implementation("androidx.appcompat:appcompat:1.7.1")
     implementation("com.google.android.material:material:1.13.0")
