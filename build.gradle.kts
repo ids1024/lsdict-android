@@ -15,15 +15,15 @@ kotlin {
 }
 
 android {
-    compileSdkVersion(35)
+    compileSdkVersion(36)
 
     buildFeatures {
         viewBinding = true
     }
 
     defaultConfig {
-        minSdkVersion(21)
-        targetSdk = 34
+        minSdk { version = release(21) }
+        targetSdk = 36
     }
 
     signingConfigs {
