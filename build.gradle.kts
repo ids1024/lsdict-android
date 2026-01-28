@@ -1,10 +1,10 @@
 buildscript {
-    val kotlinVersion by extra("2.0.10")
+    val kotlinVersion by extra("2.2.10")
 }
 
 plugins {
     val kotlinVersion: String by rootProject.extra
-    id("com.android.application") version "8.13.2"
+    id("com.android.application") version "9.0.0"
     id("org.jetbrains.kotlin.android") version kotlinVersion
 }
 
@@ -39,7 +39,7 @@ android {
         getByName("release") {
             isMinifyEnabled = false
             // signingConfig = signingConfigs.release
-            proguardFile(getDefaultProguardFile("proguard-android.txt"))
+            proguardFile(getDefaultProguardFile("proguard-android-optimize.txt"))
         }
     }
     namespace = "com.ids1024.lsdict"
