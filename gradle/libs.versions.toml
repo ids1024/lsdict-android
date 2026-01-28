@@ -1,0 +1,13 @@
+[versions]
+sqliteassethelper = "+"
+appcompat = "1.7.1"
+material = "1.13.0"
+ktlint = "1.7.1"
+
+[libraries]
+sqliteassethelper = { group = "com.readystatesoftware.sqliteasset", name = "sqliteassethelper", version.ref = "sqliteassethelper" }
+appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
+material = { group = "com.google.android.material", name = "material", version.ref = "material" }
+ktlint = { group = "com.pinterest.ktlint", name = "ktlint-cli", version.ref = "ktlint" }
+
+[plugins]

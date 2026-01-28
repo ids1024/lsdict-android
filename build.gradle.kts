@@ -52,11 +52,10 @@ repositories {
 val ktlint: Configuration by configurations.creating
 
 dependencies {
-    ktlint("com.pinterest.ktlint:ktlint-cli:1.7.1")
-    //noinspection GradleDependency
-    implementation("com.readystatesoftware.sqliteasset:sqliteassethelper:+")
-    implementation("androidx.appcompat:appcompat:1.7.1")
-    implementation("com.google.android.material:material:1.13.0")
+    ktlint(libs.ktlint)
+    implementation(libs.sqliteassethelper)
+    implementation(libs.appcompat)
+    implementation(libs.material)
 }
 
 tasks.register<JavaExec>("ktlint") {
