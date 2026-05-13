@@ -9,7 +9,7 @@ kotlin {
 }
 
 android {
-    compileSdkVersion(36)
+    compileSdk { version = release(36) }
 
     buildFeatures {
         viewBinding = true
