@@ -1,5 +1,5 @@
 plugins {
-    id("com.android.application") version "9.0.0"
+    id("com.android.application") version "9.2.1"
 }
 
 kotlin {
